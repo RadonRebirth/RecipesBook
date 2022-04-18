@@ -13,7 +13,6 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     int recipe;
-    String selectedItem;
     String[] countries = { "Богиня вечности", "Смертная свобода", "Огненная птица", "Каменный контракт", "Вдалеке от святых"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
