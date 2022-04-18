@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ListView countriesList = findViewById(R.id.countriesList);
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, countries);
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, R.layout.listactivity, R.id.textView4,countries);
         countriesList.setAdapter(adapter);
         countriesList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override

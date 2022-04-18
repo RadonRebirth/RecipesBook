@@ -1,13 +1,18 @@
 package com.example.recipes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import static java.security.AccessController.getContext;
+
 public class Recipe extends AppCompatActivity {
     int recipe;
+    String[] countries = { "Богиня вечности", "Смертная свобода", "Огненная птица", "Каменный контракт", "Вдалеке от святых"};
     String[] recipes = {
             "Коктейль: Богиня вечности\n" +
                     "Описание: плод стойкости незыблемого бога вечности и спокойствия Сёгун Райден, приготовлен с помощью электических разрядов и кровопролития тысячилетий в Инадзумской святой воде на вершине горы Ёго.\n" +
@@ -64,7 +69,27 @@ public class Recipe extends AppCompatActivity {
         recipe = intent.getIntExtra("selectedItem",recipe);
         setContentView(R.layout.recipe);
         TextView text = findViewById(R.id.textView);
+        TextView nametext = findViewById(R.id.nameText);
+        nametext.setText(countries[recipe]);
         text.setText(recipes[recipe]);
+        ConstraintLayout fon = findViewById(R.id.Recipe);
+        switch (recipe){
+            case 0:
+                fon.setBackground(getResources().getDrawable(R.drawable.first));
+                break;
+            case 1:
+                fon.setBackground(getResources().getDrawable(R.drawable.second));
+                break;
+            case 2:
+                fon.setBackground(getResources().getDrawable(R.drawable.third));
+                break;
+            case 3:
+                fon.setBackground(getResources().getDrawable(R.drawable.fourth));
+                break;
+            case 4:
+                fon.setBackground(getResources().getDrawable(R.drawable.fifth));
+                break;
+        }
     }
     protected void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
