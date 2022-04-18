@@ -14,13 +14,11 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
     int recipe;
     String selectedItem;
-    String[] countries = { "Борщ", "Пельмени", "Вишнёвый десерт", "Помидоры Чили", "Салат Цезарь"};
-
+    String[] countries = { "Богиня вечности", "Смертная свобода", "Огненная птица", "Каменный контракт", "Вдалеке от святых"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView selection = findViewById(R.id.selection);
         ListView countriesList = findViewById(R.id.countriesList);
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, countries);
         countriesList.setAdapter(adapter);
@@ -28,10 +26,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id)
             {
-                //TextView text = findViewById(R.id.textView);
                 selectedItem = countries[position];
                 recipe = Arrays.asList(countries).indexOf(selectedItem);
-                selection.setText(selectedItem);
                 Intent intent = new Intent(MainActivity.this, Recipe.class);
                 intent.putExtra("selectedItem",recipe);
                 startActivity(intent);

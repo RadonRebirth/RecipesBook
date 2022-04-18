@@ -4,27 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/selection"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
-        android:fontFamily="@font/bad_script"
-        android:textAlignment="center"
-        android:textSize="32sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/countriesList"
-        android:layout_width="384dp"
-        android:layout_height="484dp"
+        style="@style/Widget.AppCompat.ListView"
+        android:layout_width="341dp"
+        android:layout_height="581dp"
+        android:layout_marginBottom="88dp"
+        android:choiceMode="singleChoice"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selection"></ListView>
+        app:layout_constraintRight_toRightOf="parent"></ListView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="133dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/arsenal"
+        android:text="Коктейли:"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
