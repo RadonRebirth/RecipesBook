@@ -9,25 +9,46 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
     int recipe;
     String selectedItem;
-    String[] countries = { "Богиня вечности", "Смертная свобода", "Огненная птица", "Каменный контракт", "Вдалеке от святых"};
+    ArrayList<String> lines = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ListView countriesList = findViewById(R.id.countriesList);
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, countries);
+        try {
+            InputStream inputreader = getAssets().open("nameText.txt");
+            Scanner scanner = new Scanner(inputreader);
+
+            while(scanner.hasNextLine())
+            {
+                lines.add(scanner.nextLine());
+            }
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, R.layout.listactivity, R.id.textView4,lines);
         countriesList.setAdapter(adapter);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         countriesList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id)
             {
-                selectedItem = countries[position];
-                recipe = Arrays.asList(countries).indexOf(selectedItem);
+                selectedItem = (String) lines.get(position);
+                recipe = lines.indexOf(selectedItem);
                 Intent intent = new Intent(MainActivity.this, Recipe.class);
                 intent.putExtra("selectedItem",recipe);
                 startActivity(intent);
