@@ -17,10 +17,10 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        app:layout_constraintTop_toBottomOf="@+id/namedText" />
 
     <TextView
-        android:id="@+id/nameText"
+        android:id="@+id/namedText"
         android:layout_width="300dp"
         android:layout_height="42dp"
         android:layout_marginTop="72dp"
