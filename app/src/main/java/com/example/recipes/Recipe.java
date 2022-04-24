@@ -2,20 +2,15 @@ package com.example.recipes;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static java.security.AccessController.getContext;
 
 public class Recipe extends AppCompatActivity {
     int recipe;
